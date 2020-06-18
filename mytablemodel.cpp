@@ -15,7 +15,7 @@ myTableModel::myTableModel(QObject *parent)
     query.exec("SELECT mrp.fullname, TO_CHAR(mrp.date_of_birth, 'DD-MM-YYYY'), mrp.post, department.title "
                     "FROM mrp JOIN department ON mrp.id_dept = department.id_dept");
 
-    QString str = query.lastError().text();
+    // QString str = query.lastError().text(); TODO: debug purpose only
     while (query.next()) {
         _vec.push_back({query.value(0).toString(),
                                query.value(1).toString(),
